@@ -36,12 +36,15 @@ jobs:
       #   with:
       #     version: 9 # Not needed if you've set "packageManager" in package.json
       # - uses: oven-sh/setup-bun@v1 # Uncomment this if you're using Bun
+      - name: Setup Pnpm
+        uses: pnpm/action-setup@v2
+        with: 
+          version: '9.0.5'
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install PNPM
-+       run: npm i -g pnpm
+          cache: pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
